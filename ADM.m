@@ -20,10 +20,7 @@ for k = 1:MaxIter
     x = soft_thresholding(Y*q,lambda); % update y by soft thresholding
     q = Y'*x/norm(Y'*x,2); % update q by projection to the sphere
     res_q = norm(q_old-q,2);
-    
-    % this next section is to create a figure showing the algorithm at
-    % work:
-    out = Y*q; % compose sparsets vector
+   
     
     
     if (res_q<=tol)
@@ -32,13 +29,9 @@ for k = 1:MaxIter
     end
     k;
 
-    
-    % if(mod(k,10)==0)
-    %    res_obj = abs(obj-obj_old);
-    %    fprintf('Running the %d-th iteration, diff_q=%f, diff_obj =%f \n',k, res_q,res_obj);
-    % end
+   
 end
-out = NaN.*Y*q
+
 
 end
 
